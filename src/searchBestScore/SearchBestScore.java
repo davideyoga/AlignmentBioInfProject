@@ -5,7 +5,7 @@ import matrixDecodification.BioMatrix;
 
 public class SearchBestScore{
 	
-	public SearchBestScore( File data, BioMatrix matrix){
+	public SearchBestScore( File data, BioATCGMatrix matrix){
 		
 	}
 }

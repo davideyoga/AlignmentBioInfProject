@@ -8,13 +8,13 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BioMatrix{
+public class BioATCGMatrix{
 	
 	 ArrayList<String> records;
 	 
 	 HashMap<String,Integer> map;
 	
-	public BioMatrix(File fileName) throws Exception{
+	public BioATCGMatrix(File fileName) throws Exception{
 		
 	    this.records = new ArrayList<String>();
 
@@ -47,7 +47,7 @@ public class BioMatrix{
 	
 	private HashMap<String,Integer> decodificateMatrix(ArrayList<String> list){
 		
-		String[] alphabet = {"A","T","C","G", "A", "T"};
+		String[] alphabet = {"A","T","C","G"};
 		
 		HashMap<String,Integer> map = new HashMap<String, Integer>(); // mi dichiaro un chiave valore in cui inserisco la coppia e il valore corrispondente
 		

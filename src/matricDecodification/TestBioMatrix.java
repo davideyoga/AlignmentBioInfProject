@@ -22,6 +22,6 @@ public class TestBioMatrix{
 		
 		File route = new File("/home/davide/eclipse-workspace/AlignmentBioinformatic/matrix.txt");
 		
-		new BioMatrix(route);
+		new BioATCGMatrix(route);
 	}
 }	
