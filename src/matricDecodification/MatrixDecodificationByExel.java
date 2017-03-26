@@ -21,7 +21,7 @@ public class MatrixDecodificationByExel{
 	
 	String error; // contiene eventuali errori in fase di codifica della matrice
 	
-	
+	//COSTRUTTORE
 	public MatrixDecodificationByExel( String routeExcel) throws Exception{
 		
 		File fileExcel = new File (routeExcel);
@@ -32,6 +32,7 @@ public class MatrixDecodificationByExel{
 		ceckMatrixCharacter(sheet);
 		
 		getValueByMatrix(sheet);
+		
 	}
 	
 
@@ -125,7 +126,7 @@ public class MatrixDecodificationByExel{
 				
 				Cell cell = sheet.getCell(countColumns, countRows); // prendo la cella (countRows, countColumns)
 				
-				try{ //blocco per catturare l'errore di conversione da stringa a intero, nel caso in cui ci sia un carattere nelle celle ch contengono i valori
+				try{ //blocco per catturare l'errore di conversione da stringa a intero: nel caso in cui ci sia un carattere nelle celle che dovrebbero un valore intero
 					int value = Integer.parseInt(cell.getContents()); // prendo il valore della cella e la converto in intero
 					
 		            String nameValue = charRows.get(countColumns - 1) + charColumns.get(countRows - 1); // unisco il carattere della riga con quello della colonna 
@@ -164,11 +165,5 @@ public class MatrixDecodificationByExel{
 		return sheet;
 	}
 	
-	public static void main(String args[]) throws Exception{
-		
-		String routeExcel = "/home/davide/Scrivania/pippo.xls";
-		
-		new MatrixDecodificationByExel(routeExcel);
-		
-	}
+
 }
