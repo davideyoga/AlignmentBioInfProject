@@ -1,4 +1,4 @@
-package matricDecodification;
+package matrixDecodification;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class MatrixDecodificationByExel{
+public class MatrixDecodificationByExcel{
 	
 	
 	HashMap<String, Integer> matrixValue = new HashMap<String, Integer>(); // chiave valore in cui inserisco la coppia di carqatteri e il corrispettivo valore  
@@ -22,7 +22,7 @@ public class MatrixDecodificationByExel{
 	String error; // contiene eventuali errori in fase di codifica della matrice
 	
 	//COSTRUTTORE
-	public MatrixDecodificationByExel( String routeExcel) throws Exception{
+	public MatrixDecodificationByExcel( String routeExcel) throws Exception{
 		
 		File fileExcel = new File (routeExcel);
 		
