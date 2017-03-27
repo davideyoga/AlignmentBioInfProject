@@ -14,10 +14,10 @@ import jxl.read.biff.BiffException;
 public class MatrixDecodificationByExcel{
 	
 	
-	HashMap<String, Integer> matrixValue = new HashMap<String, Integer>(); // chiave valore in cui inserisco la coppia di carqatteri e il corrispettivo valore  
+	public HashMap<String, Integer> matrixValue = new HashMap<String, Integer>(); // chiave valore in cui inserisco la coppia di carqatteri e il corrispettivo valore  
 	
-	ArrayList<String> charRows;
-	ArrayList<String> charColumns;
+	public ArrayList<String> charRows;
+	public ArrayList<String> charColumns;
 	
 	String error; // contiene eventuali errori in fase di codifica della matrice
 	
@@ -36,7 +36,7 @@ public class MatrixDecodificationByExcel{
 	}
 	
 
-	
+	//METODO PER PRENDERE I CARATTERI POSIZIONATI NELLA PRIMA COLONNA E NELLA PRIMA RIGA
 	private void ceckMatrixCharacter( Sheet sheet) throws Exception{
 		
 		this.charRows = new ArrayList<String>(); // lista in cui verranno inseriti i caratteri della prima riga, utilizzato per controllare la non esistenza di due caratteri uguali
@@ -64,6 +64,12 @@ public class MatrixDecodificationByExcel{
 			Cell cell = sheet.getCell(i, 0); // prendo la cella (0, i-esima)
             String cellValue = cell.getContents(); // prendo il valore della cella 
             
+            if(cellValue.length() > 1){
+    			System.out.println("Errore: nella colonna: " + i + ", riga 0, e' presente piu' di un carattere, NON SONO PERMESSI PIU' CARATERI COME VALORE \n");
+    			this.error = "Errore: nella colonna: " + i + ", riga 0, e' presente piu' di un carattere, NON SONO PERMESSI PIU' CARATERI COME VALORE";
+    			throw new Exception("Errore: nella colonna: " + i + ", riga 0, e' presente piu' di un carattere, NON SONO PERMESSI PIU' CARATERI COME VALORE");
+            }
+            
             if( charRows.contains(cellValue) ){ // se charRows contiene gia il carattere
             	
             	System.out.println("Matrice non corretta," + cellValue + " compare due volte nelle righe");
@@ -81,6 +87,12 @@ public class MatrixDecodificationByExcel{
 			
 			Cell cell = sheet.getCell(0, i); // prendo la cella (i-esima, 0)
             String cellValue = cell.getContents(); // prendo il valore della cella 
+            
+            if(cellValue.length() > 1){
+    			System.out.println("Errore: nella riga: " + i + ", colonna 0, e' presente piu' di un carattere, NON SONO PERMESSI PIU' CARATERI COME VALORE \n ");
+    			this.error = "Errore: nella riga: " + i + ", colonna 0, e' presente piu' di un carattere, NON SONO PERMESSI PIU' CARATERI COME VALORE ";
+    			throw new Exception("Errore: nella riga: " + i + ", colonna 0, e' presente piu' di un carattere, NON SONO PERMESSI PIU' CARATERI COME VALORE ");
+            }
             
             if( charColumns.contains(cellValue) ){ // se charColumns contiene gia il carattere
             	
@@ -113,9 +125,10 @@ public class MatrixDecodificationByExcel{
             }
 		}
 		
-		System.out.println(charRows + "\n" + charColumns);
+
 	}
 	
+	//METODO PER PRENDERE I VALORI DELLA MATRICE
 	private void getValueByMatrix( Sheet sheet ) throws NumberFormatException{
 		
 		//CODIFICO COME (COLONNA, RIGA)
@@ -144,7 +157,7 @@ public class MatrixDecodificationByExcel{
 			} //fine ciclo colonne
 		}//fine ciclo righe
 		
-		System.out.println(matrixValue);
+
 	}
 	
 	
