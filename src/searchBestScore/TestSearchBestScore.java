@@ -37,13 +37,13 @@ public class TestSearchBestScore{
 		System.out.println("Inserire la directory con percorso assoluto in cui verranno creati i file txt contenenti le sequenze: ");
 		String routeSequnceData = getkeyboardData();
 		
-		String s = CreateSequences.getNewSequence( 4 ,30);
+		String s = CreateSequences.getNewSequence( 4 ,4);
 		
 		for(int i = 1; i <= 201; i = i + 20 ){		
 			
 			String nameData = routeSequnceData + "data" + i;  
 			
-			CreateSequences.CreateSequences2( 4, i, 20, nameData );
+			CreateSequences.CreateSequences2( 4, i, 4, nameData ); // creo un file con sequenze di 4 caratteri, con numero di sequenze i e lunghe 4  
 			
 			SearchBestScore bs = new SearchBestScore(nameData, matrix, s);
 			
