@@ -12,7 +12,7 @@ public class CreateSequences{
 	public static int CreateSequences2( int numAlphabet, int numString, int lenghtSequence, String route ) throws Exception{ // CREA DELLE SEQUENZE CON I NUMERI DEFINITI, OGNI QUAL VOLTA VIENE CHIAMATA ELIMINA I PRECEDENTI
 		
 		//CONTROLLI SU INPUT 
-		if(numAlphabet < alphabet.length){
+		if(numAlphabet >= alphabet.length){
 			System.out.println("maxed out number characters of quarty alpahbet");
 			throw new Exception("maxed out number characters of quarty alpahbet");
 		}
@@ -29,8 +29,6 @@ public class CreateSequences{
 				String sequence = getNewSequence(numAlphabet, lenghtSequence);
 				
 				out1.println(sequence);
-				
-				System.out.println("ho scritto");
 			}
 			
 			out1.close();
@@ -44,7 +42,7 @@ public class CreateSequences{
 		
 	}
 	
-	private static String getNewSequence( int numAlphabet, int lenghtSequence){		
+	public static String getNewSequence( int numAlphabet, int lenghtSequence){		
 		
 		String result = new String();
 		

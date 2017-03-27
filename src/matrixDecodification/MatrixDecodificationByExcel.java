@@ -158,6 +158,7 @@ public class MatrixDecodificationByExcel{
 			sheet = workbook.getSheet(0);	
 			
 		}catch(BiffException e){
+			System.out.println("Matrice non trovata");
 			System.out.println("Error: " + e);
 			e.printStackTrace();
 		}
@@ -165,5 +166,16 @@ public class MatrixDecodificationByExcel{
 		return sheet;
 	}
 	
+	public int getValueString( String s) throws Exception{
+		
+
+		
+		if(!matrixValue.containsKey(s)){
+			System.out.println("Il carattere: " + s + " non e' presente nalla matrice ");
+			throw new Exception("Il carattere: " + s + " non e' presente nalla matrice ");
+		}
+		
+		return matrixValue.get(s);
+	}
 
 }
